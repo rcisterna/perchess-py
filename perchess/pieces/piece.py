@@ -1,7 +1,7 @@
 from typing import Iterable
 
-from perchess_py.exceptions import MovementException
-from perchess_py.pieces import Movement, Color
+from perchess.exceptions import MovementException
+from perchess.pieces import Movement, Color
 
 
 class Piece:

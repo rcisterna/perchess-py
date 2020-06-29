@@ -1,4 +1,4 @@
-from perchess_py import __version__
+from perchess import __version__
 
 
 def test_version():

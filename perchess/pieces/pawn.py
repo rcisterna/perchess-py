@@ -1,4 +1,4 @@
-from perchess_py.pieces import Movement, Color, Piece
+from perchess.pieces import Movement, Color, Piece
 
 
 class Pawn(Piece):

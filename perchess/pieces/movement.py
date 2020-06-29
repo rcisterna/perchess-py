@@ -1,4 +1,4 @@
-from perchess_py.exceptions import MovementException
+from perchess.exceptions import MovementException
 
 
 class Movement:

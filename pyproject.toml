@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "perchess-py"
+name = "perchess"
 version = "0.1.0"
 description = ""
 authors = ["Ricardo Cisterna <r.cisternasantos@gmail.com>"]

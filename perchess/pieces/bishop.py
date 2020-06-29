@@ -1,4 +1,4 @@
-from perchess_py.pieces import Piece, Color, Movement
+from perchess.pieces import Piece, Color, Movement
 
 
 class Bishop(Piece):
