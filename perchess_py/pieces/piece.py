@@ -8,6 +8,10 @@ class Piece:
     """Pieza de ajedrez."""
 
     def __init__(self, color: Color, movements: Iterable[Movement]):
+        """
+        :param color: Color de jugador.
+        :param movements: Movimientos de la pieza.
+        """
         self.__has_moved = False
         self.__color = color
         self.movements = tuple(m for m in movements)
