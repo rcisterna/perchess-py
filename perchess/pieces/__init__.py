@@ -4,7 +4,7 @@ Piezas de ajedrez.
 
 __all__ = [
     "Movement",
-    "Color",
+    "Colors",
     "Piece",
     "Pawn",
     "Bishop",
@@ -14,7 +14,7 @@ __all__ = [
     "King",
 ]
 
-from perchess.pieces.color import Color
+from perchess.pieces.colors import Colors
 from perchess.pieces.movement import Movement
 from perchess.pieces.piece import Piece
 

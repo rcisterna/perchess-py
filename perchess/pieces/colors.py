@@ -1,7 +1,7 @@
 from enum import Enum
 
 
-class Color(Enum):
+class Colors(Enum):
     """Color de las piezas."""
 
     WHITE = 1

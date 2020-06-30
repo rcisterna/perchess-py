@@ -3,20 +3,20 @@ import random
 import pytest
 
 from perchess.exceptions import MovementException
-from perchess.pieces import Piece, Color, Movement
+from perchess.pieces import Piece, Colors, Movement
 
 
 def test_init_exceptions():
     with pytest.raises(ValueError):
-        Piece(Color.WHITE, [])
+        Piece(Colors.WHITE, [])
     with pytest.raises(ValueError):
         Piece(1, [Movement(1, 1)])
 
 
 def test_readonly_exceptions():
-    piece = Piece(Color.BLACK, [Movement(1, 1)])
+    piece = Piece(Colors.BLACK, [Movement(1, 1)])
     with pytest.raises(AttributeError):
-        piece.color = Color.WHITE
+        piece.color = Colors.WHITE
     with pytest.raises(AttributeError):
         piece.has_moved = True
     with pytest.raises(AttributeError):
@@ -24,7 +24,7 @@ def test_readonly_exceptions():
 
 
 def test_properties():
-    color = random.choice([Color.WHITE, Color.BLACK])
+    color = random.choice([Colors.WHITE, Colors.BLACK])
     piece = Piece(color, [Movement(1, 1), Movement(-1, -1)])
     assert piece.has_moved is False
     assert piece.color == color
@@ -35,7 +35,7 @@ def test_properties():
 
 
 def test_moves():
-    color = random.choice([Color.WHITE, Color.BLACK])
+    color = random.choice([Colors.WHITE, Colors.BLACK])
     to_capture = Piece(color, [Movement(1, 1)])
     m_normal = Movement(1, 0)
     m_only_first = Movement(1, 0, only_first=True)

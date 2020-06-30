@@ -1,12 +1,12 @@
 from itertools import permutations
 
-from perchess.pieces import Piece, Color, Movement
+from perchess.pieces import Piece, Colors, Movement
 
 
 class Knight(Piece):
     """Caballo."""
 
-    def __init__(self, color: Color):
+    def __init__(self, color: Colors):
         """
         :param color: Color de jugador.
         """

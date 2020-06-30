@@ -1,10 +1,10 @@
-from perchess.pieces import Piece, Color, Movement
+from perchess.pieces import Piece, Colors, Movement
 
 
 class Rook(Piece):
     """Torre."""
 
-    def __init__(self, color: Color):
+    def __init__(self, color: Colors):
         """
         :param color: Color de jugador.
         """

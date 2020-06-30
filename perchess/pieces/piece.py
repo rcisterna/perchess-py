@@ -1,18 +1,18 @@
 from typing import Iterable, Tuple, Optional
 
 from perchess.exceptions import MovementException
-from perchess.pieces import Movement, Color
+from perchess.pieces import Movement, Colors
 
 
 class Piece:
     """Pieza de ajedrez."""
 
-    def __init__(self, color: Color, movements: Iterable[Movement]):
+    def __init__(self, color: Colors, movements: Iterable[Movement]):
         """
         :param color: Color de jugador.
         :param movements: Movimientos de la pieza.
         """
-        if not isinstance(color, Color):
+        if not isinstance(color, Colors):
             raise ValueError("Color de la pieza debe ser instancia de la enumeración de colores.")
         self.__movements = tuple(m for m in movements)
         if not len(self.__movements):
@@ -26,7 +26,7 @@ class Piece:
         return self.__has_moved
 
     @property
-    def color(self) -> Color:
+    def color(self) -> Colors:
         """Indica el color de la pieza."""
         return self.__color
 
