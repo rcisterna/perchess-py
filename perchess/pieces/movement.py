@@ -1,6 +1,3 @@
-from perchess.exceptions import MovementException
-
-
 class Movement:
     """Descriptor de movimiento."""
 
@@ -15,9 +12,11 @@ class Movement:
         :param can_capture: Indica si puede capturar.
         """
         if only_capture and not can_capture:
-            raise MovementException("No se puede definir movimiento de solo captura y que no puede capturar.")
+            raise ValueError("No se puede definir movimiento de solo captura y que no puede capturar.")
         if not rank and not file:
-            raise MovementException("No se puede definir movimiento que no desplaza la pieza.")
+            raise ValueError("No se puede definir movimiento que no desplaza la pieza.")
+        if abs(rank) > 7 or abs(file) > 7:
+            raise ValueError("No se puede definir movimiento que desplace la pieza más de 7 casillas.")
         self.__rank = rank
         self.__file = file
         self.__only_first = only_first
@@ -48,3 +47,14 @@ class Movement:
     def can_capture(self) -> bool:
         """Indica si puede capturar."""
         return self.__can_capture
+
+    def __eq__(self, other):
+        if not isinstance(other, Movement):
+            return False
+        return (
+            self.rank == other.rank
+            and self.file == other.file
+            and self.only_first == other.only_first
+            and self.only_capture == other.only_capture
+            and self.can_capture == other.can_capture
+        )

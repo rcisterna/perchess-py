@@ -2,7 +2,7 @@
 
 test:
 	poetry run coverage run --source=. -m pytest
-	poetry run coverage report
+	poetry run coverage report --skip-empty -m
 
 clean:
 	find . \( -type f -name "*.py[co]" -or -name ".coverage" \) -delete
