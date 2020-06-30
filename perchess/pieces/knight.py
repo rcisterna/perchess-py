@@ -12,13 +12,13 @@ class Knight(Piece):
         """
         movements = []
         side_movements = [1, 2]
-        for travel_r, travel_f in permutations(side_movements):
+        for travel_f, travel_r in permutations(side_movements):
             movements.extend(
                 [
-                    Movement(travel_r, travel_f),
-                    Movement(travel_r, -travel_f),
-                    Movement(-travel_r, travel_f),
-                    Movement(-travel_r, -travel_f),
+                    Movement(travel_f, travel_r),
+                    Movement(travel_f, -travel_r),
+                    Movement(-travel_f, travel_r),
+                    Movement(-travel_f, -travel_r),
                 ]
             )
         Piece.__init__(self, color, movements)
