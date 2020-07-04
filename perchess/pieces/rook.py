@@ -11,4 +11,4 @@ class Rook(Piece):
         movements = []
         for travel in range(1, 8):
             movements.extend([Movement(travel, 0), Movement(-travel, 0), Movement(0, travel), Movement(0, -travel)])
-        Piece.__init__(self, color, movements)
+        Piece.__init__(self, "R", color, movements)

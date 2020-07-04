@@ -22,4 +22,4 @@ class Queen(Piece):
                     Movement(travel, -travel),
                 ]
             )
-        Piece.__init__(self, color, movements)
+        Piece.__init__(self, "Q", color, movements)

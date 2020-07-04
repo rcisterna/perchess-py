@@ -15,4 +15,4 @@ class Pawn(Piece):
             Movement(-1, forward, only_capture=True),
             Movement(1, forward, only_capture=True),
         ]
-        Piece.__init__(self, color, movements)
+        Piece.__init__(self, "", color, movements)

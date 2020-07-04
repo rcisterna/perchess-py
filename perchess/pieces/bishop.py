@@ -18,4 +18,4 @@ class Bishop(Piece):
                     Movement(-travel, -travel),
                 ]
             )
-        Piece.__init__(self, color, movements)
+        Piece.__init__(self, "B", color, movements)

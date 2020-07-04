@@ -7,8 +7,9 @@ from perchess.pieces import Movement, Colors
 class Piece:
     """Pieza de ajedrez."""
 
-    def __init__(self, color: Colors, movements: Iterable[Movement]):
+    def __init__(self, name: str, color: Colors, movements: Iterable[Movement]):
         """
+        :param name: Nombre de la pieza.
         :param color: Color de jugador.
         :param movements: Movimientos de la pieza.
         """
@@ -17,8 +18,14 @@ class Piece:
         self.__movements = tuple(m for m in movements)
         if not len(self.__movements):
             raise ValueError("La pieza debe tener movimientos.")
+        self.__name = name
         self.__has_moved = False
         self.__color = color
+
+    @property
+    def name(self) -> str:
+        """Nombre de la pieza."""
+        return self.__name
 
     @property
     def has_moved(self) -> int:

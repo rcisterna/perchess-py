@@ -8,13 +8,15 @@ from perchess.pieces import Piece, Colors, Movement
 
 def test_init_exceptions():
     with pytest.raises(ValueError):
-        Piece(Colors.WHITE, [])
+        Piece("?", Colors.WHITE, [])
     with pytest.raises(ValueError):
-        Piece(1, [Movement(1, 1)])
+        Piece("?", 1, [Movement(1, 1)])
 
 
 def test_readonly_exceptions():
-    piece = Piece(Colors.BLACK, [Movement(1, 1)])
+    piece = Piece("?", Colors.BLACK, [Movement(1, 1)])
+    with pytest.raises(AttributeError):
+        piece.name = "New"
     with pytest.raises(AttributeError):
         piece.color = Colors.WHITE
     with pytest.raises(AttributeError):
@@ -25,7 +27,8 @@ def test_readonly_exceptions():
 
 def test_properties():
     color = random.choice([Colors.WHITE, Colors.BLACK])
-    piece = Piece(color, [Movement(1, 1), Movement(-1, -1)])
+    piece = Piece("?", color, [Movement(1, 1), Movement(-1, -1)])
+    assert piece.name == "?"
     assert piece.has_moved is False
     assert piece.color == color
     assert all(a == b for a, b in zip(piece.movements, [Movement(1, 1), Movement(-1, -1)]))
@@ -36,13 +39,13 @@ def test_properties():
 
 def test_moves():
     color = random.choice([Colors.WHITE, Colors.BLACK])
-    to_capture = Piece(color, [Movement(1, 1)])
+    to_capture = Piece("?", color, [Movement(1, 1)])
     m_normal = Movement(1, 0)
     m_only_first = Movement(1, 0, only_first=True)
     m_only_capture = Movement(1, 0, only_capture=True)
     m_cannot_capture = Movement(1, 0, can_capture=False)
     m_not_added = Movement(-1, 0)
-    piece = Piece(color, [m_normal, m_only_first, m_only_capture, m_cannot_capture])
+    piece = Piece("?", color, [m_normal, m_only_first, m_only_capture, m_cannot_capture])
 
     piece.move(m_only_first, None)
     with pytest.raises(MovementException):

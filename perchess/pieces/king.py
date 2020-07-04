@@ -18,4 +18,4 @@ class King(Piece):
             Movement(0, -1),
             Movement(1, -1),
         ]
-        Piece.__init__(self, color, movements)
+        Piece.__init__(self, "K", color, movements)

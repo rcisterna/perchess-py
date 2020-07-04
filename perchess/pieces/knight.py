@@ -21,4 +21,4 @@ class Knight(Piece):
                     Movement(-travel_f, -travel_r),
                 ]
             )
-        Piece.__init__(self, color, movements)
+        Piece.__init__(self, "N", color, movements)
